@@ -2,7 +2,7 @@ name: Build and Push Docker Image
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
 
 jobs:
   build:
@@ -19,7 +19,12 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Build image
-        run: docker build -t ${{ secrets.DOCKER_USERNAME }}/devops-demo:${{ github.sha }} .
+        run: |
+          docker build \
+            -t ${{ secrets.DOCKER_USERNAME }}/devops-demo:${{ github.sha }} \
+            -t ${{ secrets.DOCKER_USERNAME }}/devops-demo:latest .
 
       - name: Push image
-        run: docker push ${{ secrets.DOCKER_USERNAME }}/devops-demo:${{ github.sha }}
+        run: |
+          docker push ${{ secrets.DOCKER_USERNAME }}/devops-demo:${{ github.sha }}
+          docker push ${{ secrets.DOCKER_USERNAME }}/devops-demo:latest
