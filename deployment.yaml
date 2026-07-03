@@ -13,7 +13,8 @@ spec:
         app: flask
     spec:
       containers:
-      - name: flask
-        image: arminahari/devops-demo:821ec87ead359de50e5d9b7ee2e790af4d161e0d
-        ports:
-        - containerPort: 5000
+        - name: flask
+          image: arminahari/devops-demo:#latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 5000
