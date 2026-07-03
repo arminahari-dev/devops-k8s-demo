@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: flask
-          image: arminahari/devops-demo:#latest
+          image: arminahari/devops-demo:latest
           imagePullPolicy: Always
           ports:
             - containerPort: 5000
