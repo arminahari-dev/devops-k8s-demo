@@ -6,6 +6,6 @@ app = Flask(__name__)
 @app.route("/")
 def hello():
     hostname = socket.gethostname()
-    return f"Hello world from Kubernetes Pod: {hostname}"
+    return f"Hello from Kubernetes Pod: {hostname}"
 
 app.run(host="0.0.0.0", port=5000)
